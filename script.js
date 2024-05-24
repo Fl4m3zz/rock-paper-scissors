@@ -63,11 +63,11 @@ function playGame() {
 	}
 
 	if (humanScore > computerScore) {
-		console.log("Yay! You won!!!");
+		alert("Yay! You won!!!");
 	} else if (humanScore < computerScore) {
-		console.log("Oh no! You lost!");
+		alert("Oh no! You lost!");
 	} else {
-		console.log("Draw! How did this happen? We played an odd number of rounds");
+		alert("Draw! How did this happen? We played an odd number of rounds");
 	}
 }
 
