@@ -1,3 +1,4 @@
+const maxRounds = 5;
 const optionList = ["Rock", "Paper", "Scissors"];
 let gameStatus = document.querySelector(".results > .game-status");
 let humanScore = document.querySelector(".results > .human-score > span");
@@ -68,6 +69,34 @@ buttons.forEach((button) => {
 		if (!(roundCountNum <= 0)) {
 			playRound(humanChoice, getComputerChoice());
 			roundCount.textContent = parseInt(roundCount.textContent) - 1;
+			if (parseInt(roundCount.textContent) == 0) {
+				humanScoreNum = parseInt(humanScore.textContent);
+				computerScoreNum = parseInt(computerScore.textContent);
+				if (humanScoreNum > computerScoreNum) {
+					changeStatus("You won!");
+				} else if (computerScoreNum > humanScoreNum) {
+					changeStatus("You lost!");
+				} else {
+					changeStatus("Draw!");
+				}
+
+				humanScoreMessage = document.querySelector(".results > .human-score");
+				playAgain = document.createElement("button");
+				playAgain.setAttribute("id", "play-again");
+				playAgain.textContent = "Play Again";
+				playAgain.addEventListener("click", (e) => {
+					roundCount.textContent = maxRounds;
+					playAgainButtons = document.querySelectorAll(".results > #play-again");
+					playAgainButtons.forEach((button) => {
+						document.querySelector(".results").removeChild(button);	
+					});
+					humanScore.textContent = 0;
+					computerScore.textContent = 0;
+					gameStatus.textContent = "Choose an option above to start";
+				});
+
+				document.querySelector(".results").insertBefore(playAgain, humanScoreMessage);
+			}
 		}
 	});
 });
