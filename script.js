@@ -57,18 +57,6 @@ function playGame() {
 
 		}
 	}
-
-	for (let i = 0; i < 5; i++) {
-		playRound(getHumanChoice(), getComputerChoice());
-	}
-
-	if (humanScore > computerScore) {
-		alert("Yay! You won!!!");
-	} else if (humanScore < computerScore) {
-		alert("Oh no! You lost!");
-	} else {
-		alert("Draw! How did this happen? We played an odd number of rounds");
-	}
 }
 
 playGame()
