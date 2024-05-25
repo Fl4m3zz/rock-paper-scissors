@@ -1,7 +1,12 @@
-let humanScore = 0;
-let computerScore = 0;
 const maxRounds = 5;
 const optionList = ["Rock", "Paper", "Scissors"];
+let gameStatus = document.querySelector(".results > .game-status");
+let humanScore = document.querySelector(".results > .human-score > span");
+let computerScore = document.querySelector(".results > .computer-score > span");
+
+function incrementScore(score) {
+	score.textContent = parseInt(score.textContent) + 1;
+}
 
 function getComputerChoice() {
 	let randomNum = Math.floor(Math.random() * 3);
@@ -55,7 +60,8 @@ buttons.forEach((button) => {
 		let humanChoice = optionList.findIndex((curr) => {
 			return curr === e.target.textContent;
 		}) + 1;
-		
+		incrementScore(humanScore);
+		incrementScore(computerScore);
 	});
 });
 
