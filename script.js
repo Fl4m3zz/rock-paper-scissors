@@ -17,10 +17,10 @@ function playRound(humanChoice, computerChoice) {
 	switch (humanChoice) {
 		case 1:
 			if (computerChoice === 2) {
-				computerScore++;
+				incrementScore(computerScore);
 				console.log("You lose! Paper beats Rock!");
 			} else if (computerChoice === 3) {
-				humanScore++;
+				incrementScore(humanScore);
 				console.log("You win! Rock beats Scissors!");
 			} else {
 				console.log("Draw! You both picked Rock!");
@@ -28,10 +28,10 @@ function playRound(humanChoice, computerChoice) {
 			break;
 		case 2:
 			if (computerChoice === 1) {
-				humanScore++;
+				incrementScore(humanScore);
 				console.log("You win! Paper beats Rock!");
 			} else if (computerChoice === 3) {
-				computerScore++;
+				incrementScore(computerScore);
 				console.log("You lose! Scissors beats Paper!");
 			} else {
 				console.log("Draw! You both picked Paper!");
@@ -39,10 +39,10 @@ function playRound(humanChoice, computerChoice) {
 			break;
 		case 3:
 			if (computerChoice === 1) {
-				computerScore++;
+				incrementScore(computerScore);
 				console.log("You lose! Rock beats Scissors!");
 			} else if (computerChoice === 2) {
-				humanScore++;
+				incrementScore(humanScore);
 				console.log("You win! Scissors beats Paper!");
 			} else {
 				console.log("Draw! You both picked Scissors!");
